@@ -1,0 +1,41 @@
+[alias]
+    ci = commit
+    co = checkout
+    br = branch
+    st = status
+    cp = cherry-pick
+    pl = pull --prune
+    subup = submodule update --init --recursive
+    unstage = reset HEAD --
+    uncommit = reset --soft HEAD^ --
+    last = log --stat -1
+    changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+    hl = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    ll = "!f() { git --no-pager hl -20 $@; }; f"
+    gr = !git --no-pager grep -Hn
+    dont-commit = update-index --assume-unchanged
+    find = !git ls-tree -r --name-only --full-name HEAD . | grep
+    sdiff = "diff --staged"
+    ann = "blame -w -M -C --date=relative"
+[annotate]
+    date = relative
+[diff]
+    ignore-space-change = true
+    ignore-all-space = true
+[color]
+    ui = true
+[merge]
+    summary = true
+    verbosity = 1
+    tool = vimdiff
+[push]
+    default = matching
+[rebase]
+    autosquash = true
+[branch]
+    autosetuprebase = always
+[core]
+	preloadindex = true
+	fscache = true
+[gc]
+	auto = 256
